@@ -1,0 +1,1189 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1400,
+  "model": {
+    "defaultMode": "directQuery",
+    "culture": "en-GB",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/mtama oneacrefund org,6543;OAF_SHARED_DIMENSIONS",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "mtama.oneacrefund.org,6543",
+            "database": "OAF_SHARED_DIMENSIONS"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "kind": "SQL",
+          "path": "mtama.oneacrefund.org,6543;OAF_SHARED_DIMENSIONS",
+          "Username": "BOSSIS0001",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "DimGroup",
+        "columns": [
+          {
+            "name": "GroupID",
+            "dataType": "int64",
+            "sourceColumn": "GroupID"
+          },
+          {
+            "name": "GroupName",
+            "dataType": "string",
+            "sourceColumn": "GroupName"
+          },
+          {
+            "name": "RosterGroupID",
+            "dataType": "int64",
+            "sourceColumn": "RosterGroupID"
+          },
+          {
+            "name": "Active",
+            "dataType": "boolean",
+            "sourceColumn": "Active"
+          },
+          {
+            "name": "RosterFirstSeason",
+            "dataType": "int64",
+            "sourceColumn": "RosterFirstSeason"
+          },
+          {
+            "name": "RosterLastSeason",
+            "dataType": "int64",
+            "sourceColumn": "RosterLastSeason"
+          },
+          {
+            "name": "CountryId",
+            "dataType": "int64",
+            "sourceColumn": "CountryId"
+          },
+          {
+            "name": "CountryCode",
+            "dataType": "string",
+            "sourceColumn": "CountryCode"
+          },
+          {
+            "name": "CountryName",
+            "dataType": "string",
+            "sourceColumn": "CountryName"
+          },
+          {
+            "name": "Program",
+            "dataType": "string",
+            "sourceColumn": "Program"
+          },
+          {
+            "name": "RegionID",
+            "dataType": "int64",
+            "sourceColumn": "RegionID"
+          },
+          {
+            "name": "RegionName",
+            "dataType": "string",
+            "sourceColumn": "RegionName"
+          },
+          {
+            "name": "DistrictID",
+            "dataType": "int64",
+            "sourceColumn": "DistrictID"
+          },
+          {
+            "name": "DistrictName",
+            "dataType": "string",
+            "sourceColumn": "DistrictName"
+          },
+          {
+            "name": "RosterDistrictID",
+            "dataType": "int64",
+            "sourceColumn": "RosterDistrictID"
+          },
+          {
+            "name": "SectorID",
+            "dataType": "int64",
+            "sourceColumn": "SectorID"
+          },
+          {
+            "name": "SectorName",
+            "dataType": "string",
+            "sourceColumn": "SectorName"
+          },
+          {
+            "name": "SiteID",
+            "dataType": "int64",
+            "sourceColumn": "SiteID"
+          },
+          {
+            "name": "SiteName",
+            "dataType": "string",
+            "sourceColumn": "SiteName"
+          },
+          {
+            "name": "RosterSiteID",
+            "dataType": "int64",
+            "sourceColumn": "RosterSiteID"
+          },
+          {
+            "name": "RowGuid",
+            "dataType": "string",
+            "sourceColumn": "RowGuid"
+          },
+          {
+            "name": "FirstSeason",
+            "dataType": "int64",
+            "sourceColumn": "FirstSeason"
+          },
+          {
+            "name": "LastSeason",
+            "dataType": "int64",
+            "sourceColumn": "LastSeason"
+          },
+          {
+            "name": "SiteEmployeeID",
+            "dataType": "int64",
+            "sourceColumn": "SiteEmployeeID"
+          },
+          {
+            "name": "firstname",
+            "dataType": "string",
+            "sourceColumn": "firstname"
+          },
+          {
+            "name": "lastname",
+            "dataType": "string",
+            "sourceColumn": "lastname"
+          },
+          {
+            "name": "payrollid",
+            "dataType": "string",
+            "sourceColumn": "payrollid"
+          },
+          {
+            "name": "IsDeleted",
+            "dataType": "int64",
+            "sourceColumn": "IsDeleted"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/mtama oneacrefund org,6543;OAF_SHARED_DIMENSIONS\",",
+                "    dbo_DimGroup = Source{[Schema=\"dbo\",Item=\"DimGroup\"]}[Data]",
+                "in",
+                "    dbo_DimGroup"
+              ]
+            }
+          },
+          {
+            "name": "Partition - Copy",
+            "mode": "import",
+            "dataView": "sample",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/mtama oneacrefund org,6543;OAF_SHARED_DIMENSIONS\",",
+                "    dbo_DimGroup = Source{[Schema=\"dbo\",Item=\"DimGroup\"]}[Data]",
+                "in",
+                "    dbo_DimGroup"
+              ]
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>let",
+                  "    Source = #\"SQL/mtama oneacrefund org,6543;OAF_SHARED_DIMENSIONS\",",
+                  "    dbo_DimGroup = Source{[Schema=\"dbo\",Item=\"DimGroup\"]}[Data]",
+                  "in",
+                  "    dbo_DimGroup</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Geography",
+            "levels": [
+              {
+                "name": "CountryName",
+                "ordinal": 0,
+                "column": "CountryName"
+              },
+              {
+                "name": "RegionName",
+                "ordinal": 1,
+                "column": "RegionName"
+              },
+              {
+                "name": "DistrictName",
+                "ordinal": 2,
+                "column": "DistrictName"
+              },
+              {
+                "name": "SectorName",
+                "ordinal": 3,
+                "column": "SectorName"
+              },
+              {
+                "name": "SiteName",
+                "ordinal": 4,
+                "column": "SiteName"
+              },
+              {
+                "name": "GroupName",
+                "ordinal": 5,
+                "column": "GroupName"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DimRosterClient",
+        "columns": [
+          {
+            "name": "ClientID",
+            "dataType": "int64",
+            "sourceColumn": "ClientID"
+          },
+          {
+            "name": "GlobalClientID",
+            "dataType": "string",
+            "sourceColumn": "GlobalClientID"
+          },
+          {
+            "name": "DateAdded",
+            "dataType": "int64",
+            "sourceColumn": "DateAdded"
+          },
+          {
+            "name": "Enrollmentdate",
+            "dataType": "int64",
+            "sourceColumn": "Enrollmentdate"
+          },
+          {
+            "name": "CurrentRosterDistrictID",
+            "dataType": "int64",
+            "sourceColumn": "CurrentRosterDistrictID"
+          },
+          {
+            "name": "RosterClientID",
+            "dataType": "int64",
+            "sourceColumn": "RosterClientID"
+          },
+          {
+            "name": "AccountNumber",
+            "dataType": "int64",
+            "sourceColumn": "AccountNumber"
+          },
+          {
+            "name": "FirstName",
+            "dataType": "string",
+            "sourceColumn": "FirstName"
+          },
+          {
+            "name": "LastName",
+            "dataType": "string",
+            "sourceColumn": "LastName"
+          },
+          {
+            "name": "Deceased",
+            "dataType": "boolean",
+            "sourceColumn": "Deceased"
+          },
+          {
+            "name": "DeceasedDate",
+            "dataType": "int64",
+            "sourceColumn": "DeceasedDate"
+          },
+          {
+            "name": "Ban",
+            "dataType": "boolean",
+            "sourceColumn": "Ban"
+          },
+          {
+            "name": "BannedDate",
+            "dataType": "int64",
+            "sourceColumn": "BannedDate"
+          },
+          {
+            "name": "ClientBirthYear",
+            "dataType": "string",
+            "sourceColumn": "ClientBirthYear"
+          },
+          {
+            "name": "Gender",
+            "dataType": "string",
+            "sourceColumn": "Gender"
+          },
+          {
+            "name": "NationalID",
+            "dataType": "string",
+            "sourceColumn": "NationalID"
+          },
+          {
+            "name": "RosterFirstSeasonID",
+            "dataType": "int64",
+            "sourceColumn": "RosterFirstSeasonID"
+          },
+          {
+            "name": "ValidationCode",
+            "dataType": "int64",
+            "sourceColumn": "ValidationCode"
+          },
+          {
+            "name": "CanEnrollAsNewMember",
+            "dataType": "boolean",
+            "sourceColumn": "CanEnrollAsNewMember"
+          },
+          {
+            "name": "DImDistrictID",
+            "dataType": "int64",
+            "sourceColumn": "DImDistrictID"
+          },
+          {
+            "name": "FirstSeasonID",
+            "dataType": "int64",
+            "sourceColumn": "FirstSeasonID"
+          },
+          {
+            "name": "DimCountryID",
+            "dataType": "int64",
+            "sourceColumn": "DimCountryID"
+          },
+          {
+            "name": "BeneficiaryFirstName",
+            "dataType": "string",
+            "sourceColumn": "BeneficiaryFirstName"
+          },
+          {
+            "name": "BeneficiaryLastName",
+            "dataType": "string",
+            "sourceColumn": "BeneficiaryLastName"
+          },
+          {
+            "name": "BeneficiaryBirthYear",
+            "dataType": "string",
+            "sourceColumn": "BeneficiaryBirthYear"
+          },
+          {
+            "name": "BeneficiaryNationalID",
+            "dataType": "string",
+            "sourceColumn": "BeneficiaryNationalID"
+          },
+          {
+            "name": "DimGroupID",
+            "dataType": "int64",
+            "sourceColumn": "DimGroupID"
+          },
+          {
+            "name": "DimSiteID",
+            "dataType": "int64",
+            "sourceColumn": "DimSiteID"
+          },
+          {
+            "name": "GovLocationGrandParent",
+            "dataType": "string",
+            "sourceColumn": "GovLocationGrandParent"
+          },
+          {
+            "name": "GovLocationParent",
+            "dataType": "string",
+            "sourceColumn": "GovLocationParent"
+          },
+          {
+            "name": "GovLocationChild",
+            "dataType": "string",
+            "sourceColumn": "GovLocationChild"
+          },
+          {
+            "name": "GovLocationGrandChild",
+            "dataType": "string",
+            "sourceColumn": "GovLocationGrandChild"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/mtama oneacrefund org,6543;OAF_SHARED_DIMENSIONS\",",
+                "    dbo_DimRosterClient = Source{[Schema=\"dbo\",Item=\"DimRosterClient\"]}[Data]",
+                "in",
+                "    dbo_DimRosterClient"
+              ]
+            }
+          },
+          {
+            "name": "Partition - Copy",
+            "mode": "import",
+            "dataView": "sample",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/mtama oneacrefund org,6543;OAF_SHARED_DIMENSIONS\",",
+                "    dbo_DimRosterClient = Source{[Schema=\"dbo\",Item=\"DimRosterClient\"]}[Data]",
+                "in",
+                "    dbo_DimRosterClient"
+              ]
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>let",
+                  "    Source = #\"SQL/mtama oneacrefund org,6543;OAF_SHARED_DIMENSIONS\",",
+                  "    dbo_DimRosterClient = Source{[Schema=\"dbo\",Item=\"DimRosterClient\"]}[Data]",
+                  "in",
+                  "    dbo_DimRosterClient</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DimDate",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "FullDateKENYA",
+            "dataType": "string",
+            "sourceColumn": "FullDateKENYA"
+          },
+          {
+            "name": "FullDateUSA",
+            "dataType": "string",
+            "sourceColumn": "FullDateUSA"
+          },
+          {
+            "name": "DayOfMonth",
+            "dataType": "int64",
+            "sourceColumn": "DayOfMonth"
+          },
+          {
+            "name": "DaySuffix",
+            "dataType": "string",
+            "sourceColumn": "DaySuffix"
+          },
+          {
+            "name": "DayName",
+            "dataType": "string",
+            "sourceColumn": "DayName"
+          },
+          {
+            "name": "DayOfWeekUSA",
+            "dataType": "string",
+            "sourceColumn": "DayOfWeekUSA"
+          },
+          {
+            "name": "DayOfWeekKENYA",
+            "dataType": "string",
+            "sourceColumn": "DayOfWeekKENYA"
+          },
+          {
+            "name": "DayOfWeekInMonth",
+            "dataType": "string",
+            "sourceColumn": "DayOfWeekInMonth"
+          },
+          {
+            "name": "DayOfWeekInYear",
+            "dataType": "string",
+            "sourceColumn": "DayOfWeekInYear"
+          },
+          {
+            "name": "DayOfQuarter",
+            "dataType": "string",
+            "sourceColumn": "DayOfQuarter"
+          },
+          {
+            "name": "DayOfYear",
+            "dataType": "string",
+            "sourceColumn": "DayOfYear"
+          },
+          {
+            "name": "WeekOfMonth",
+            "dataType": "int64",
+            "sourceColumn": "WeekOfMonth"
+          },
+          {
+            "name": "WeekOfQuarter",
+            "dataType": "string",
+            "sourceColumn": "WeekOfQuarter"
+          },
+          {
+            "name": "WeekOfYear",
+            "dataType": "string",
+            "sourceColumn": "WeekOfYear"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "sourceColumn": "Month"
+          },
+          {
+            "name": "MonthName",
+            "dataType": "string",
+            "sourceColumn": "MonthName",
+            "sortByColumn": "Month"
+          },
+          {
+            "name": "MonthOfQuarter",
+            "dataType": "string",
+            "sourceColumn": "MonthOfQuarter"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "int64",
+            "sourceColumn": "Quarter"
+          },
+          {
+            "name": "QuarterName",
+            "dataType": "string",
+            "sourceColumn": "QuarterName"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year"
+          },
+          {
+            "name": "YearName",
+            "dataType": "string",
+            "sourceColumn": "YearName"
+          },
+          {
+            "name": "MonthYear",
+            "dataType": "string",
+            "sourceColumn": "MonthYear"
+          },
+          {
+            "name": "MMYYYY",
+            "dataType": "string",
+            "sourceColumn": "MMYYYY"
+          },
+          {
+            "name": "FirstDayOfMonth",
+            "dataType": "dateTime",
+            "sourceColumn": "FirstDayOfMonth"
+          },
+          {
+            "name": "LastDayOfMonth",
+            "dataType": "dateTime",
+            "sourceColumn": "LastDayOfMonth"
+          },
+          {
+            "name": "FirstDayOfQuarter",
+            "dataType": "dateTime",
+            "sourceColumn": "FirstDayOfQuarter"
+          },
+          {
+            "name": "LastDayOfQuarter",
+            "dataType": "dateTime",
+            "sourceColumn": "LastDayOfQuarter"
+          },
+          {
+            "name": "FirstDayOfYear",
+            "dataType": "dateTime",
+            "sourceColumn": "FirstDayOfYear"
+          },
+          {
+            "name": "LastDayOfYear",
+            "dataType": "dateTime",
+            "sourceColumn": "LastDayOfYear"
+          },
+          {
+            "name": "IsWeekday",
+            "dataType": "boolean",
+            "sourceColumn": "IsWeekday"
+          },
+          {
+            "name": "IsHolidayUSA",
+            "dataType": "boolean",
+            "sourceColumn": "IsHolidayUSA"
+          },
+          {
+            "name": "HolidayUSA",
+            "dataType": "string",
+            "sourceColumn": "HolidayUSA"
+          },
+          {
+            "name": "FiscalDayOfYear",
+            "dataType": "string",
+            "sourceColumn": "FiscalDayOfYear"
+          },
+          {
+            "name": "FiscalWeekOfYear",
+            "dataType": "string",
+            "sourceColumn": "FiscalWeekOfYear"
+          },
+          {
+            "name": "FiscalMonth",
+            "dataType": "string",
+            "sourceColumn": "FiscalMonth"
+          },
+          {
+            "name": "FiscalQuarter",
+            "dataType": "string",
+            "sourceColumn": "FiscalQuarter"
+          },
+          {
+            "name": "FiscalQuarterName",
+            "dataType": "string",
+            "sourceColumn": "FiscalQuarterName"
+          },
+          {
+            "name": "FiscalYear",
+            "dataType": "string",
+            "sourceColumn": "FiscalYear"
+          },
+          {
+            "name": "FiscalYearName",
+            "dataType": "string",
+            "sourceColumn": "FiscalYearName"
+          },
+          {
+            "name": "FiscalMonthYear",
+            "dataType": "string",
+            "sourceColumn": "FiscalMonthYear"
+          },
+          {
+            "name": "FiscalMMYYYY",
+            "dataType": "string",
+            "sourceColumn": "FiscalMMYYYY"
+          },
+          {
+            "name": "FiscalFirstDayOfMonth",
+            "dataType": "dateTime",
+            "sourceColumn": "FiscalFirstDayOfMonth"
+          },
+          {
+            "name": "FiscalLastDayOfMonth",
+            "dataType": "dateTime",
+            "sourceColumn": "FiscalLastDayOfMonth"
+          },
+          {
+            "name": "FiscalFirstDayOfQuarter",
+            "dataType": "dateTime",
+            "sourceColumn": "FiscalFirstDayOfQuarter"
+          },
+          {
+            "name": "FiscalLastDayOfQuarter",
+            "dataType": "dateTime",
+            "sourceColumn": "FiscalLastDayOfQuarter"
+          },
+          {
+            "name": "FiscalFirstDayOfYear",
+            "dataType": "dateTime",
+            "sourceColumn": "FiscalFirstDayOfYear"
+          },
+          {
+            "name": "FiscalLastDayOfYear",
+            "dataType": "dateTime",
+            "sourceColumn": "FiscalLastDayOfYear"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/mtama oneacrefund org,6543;OAF_SHARED_DIMENSIONS\",",
+                "    dbo_DimDate = Source{[Schema=\"dbo\",Item=\"DimDate\"]}[Data]",
+                "in",
+                "    dbo_DimDate"
+              ]
+            }
+          },
+          {
+            "name": "Partition - Copy",
+            "mode": "import",
+            "dataView": "sample",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/mtama oneacrefund org,6543;OAF_SHARED_DIMENSIONS\",",
+                "    dbo_DimDate = Source{[Schema=\"dbo\",Item=\"DimDate\"]}[Data]",
+                "in",
+                "    dbo_DimDate"
+              ]
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>let",
+                  "    Source = #\"SQL/mtama oneacrefund org,6543;OAF_SHARED_DIMENSIONS\",",
+                  "    dbo_DimDate = Source{[Schema=\"dbo\",Item=\"DimDate\"]}[Data]",
+                  "in",
+                  "    dbo_DimDate</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Calendar",
+            "levels": [
+              {
+                "name": "Year",
+                "ordinal": 0,
+                "column": "Year"
+              },
+              {
+                "name": "Quarter",
+                "ordinal": 1,
+                "column": "Quarter"
+              },
+              {
+                "name": "WeekOfMonth",
+                "ordinal": 3,
+                "column": "WeekOfMonth"
+              },
+              {
+                "name": "DayOfMonth",
+                "ordinal": 4,
+                "column": "DayOfMonth"
+              },
+              {
+                "name": "Date",
+                "ordinal": 5,
+                "column": "Date"
+              },
+              {
+                "name": "MonthName",
+                "ordinal": 2,
+                "column": "MonthName"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "FS_KPI_RepaymentCube",
+        "columns": [
+          {
+            "name": "DimClientID",
+            "dataType": "int64",
+            "sourceColumn": "DimClientID"
+          },
+          {
+            "name": "DimGroupID",
+            "dataType": "int64",
+            "sourceColumn": "DimGroupID"
+          },
+          {
+            "name": "DimDistrictID",
+            "dataType": "int64",
+            "sourceColumn": "DimDistrictID"
+          },
+          {
+            "name": "DimRegionID",
+            "dataType": "int64",
+            "sourceColumn": "DimRegionID"
+          },
+          {
+            "name": "DimSiteID",
+            "dataType": "int64",
+            "sourceColumn": "DimSiteID"
+          },
+          {
+            "name": "DimSectorID",
+            "dataType": "int64",
+            "sourceColumn": "DimSectorID"
+          },
+          {
+            "name": "DimSeasonID",
+            "dataType": "int64",
+            "sourceColumn": "DimSeasonID"
+          },
+          {
+            "name": "RepaidDate",
+            "dataType": "dateTime",
+            "sourceColumn": "RepaidDate"
+          },
+          {
+            "name": "RepaymentDate",
+            "dataType": "int64",
+            "sourceColumn": "RepaymentDate"
+          },
+          {
+            "name": "Amount",
+            "dataType": "decimal",
+            "description": "##,###",
+            "sourceColumn": "Amount"
+          },
+          {
+            "name": "TotalCredit",
+            "dataType": "double",
+            "sourceColumn": "TotalCredit"
+          },
+          {
+            "type": "calculated",
+            "name": "DaysSinceLastRepayment",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": " DATEDIFF ( [RepaidDate], today(), DAY )"
+          },
+          {
+            "type": "calculated",
+            "name": "RepaymentKPI",
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "expression": " RELATED(RepaymentKPI[Target])"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/mtama oneacrefund org,6543;OAF_SHARED_DIMENSIONS\",",
+                "    dbo_FS_KPI_RepaymentCube = Source{[Schema=\"dbo\",Item=\"FS_KPI_RepaymentCube\"]}[Data]",
+                "in",
+                "    dbo_FS_KPI_RepaymentCube"
+              ]
+            }
+          },
+          {
+            "name": "Partition - Copy",
+            "mode": "import",
+            "dataView": "sample",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/mtama oneacrefund org,6543;OAF_SHARED_DIMENSIONS\",",
+                "    dbo_FS_KPI_RepaymentCube = Source{[Schema=\"dbo\",Item=\"FS_KPI_RepaymentCube\"]}[Data]",
+                "in",
+                "    dbo_FS_KPI_RepaymentCube"
+              ]
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>let",
+                  "    Source = #\"SQL/mtama oneacrefund org,6543;OAF_SHARED_DIMENSIONS\",",
+                  "    dbo_FS_KPI_RepaymentCube = Source{[Schema=\"dbo\",Item=\"FS_KPI_RepaymentCube\"]}[Data]",
+                  "in",
+                  "    dbo_FS_KPI_RepaymentCube</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "TotalClients",
+            "expression": "DISTINCTCOUNT([DimClientID])",
+            "formatString": "##,###"
+          },
+          {
+            "name": "TotalGroups",
+            "expression": "DISTINCTCOUNT([DimGroupID])",
+            "formatString": "##,###"
+          },
+          {
+            "name": "TotalDistricts",
+            "expression": "DISTINCTCOUNT([DimDistrictID])"
+          },
+          {
+            "name": "TotalRegions",
+            "expression": "DISTINCTCOUNT([DimRegionID])"
+          },
+          {
+            "name": "TotalSites",
+            "expression": "DISTINCTCOUNT([DimSiteID])",
+            "formatString": "##,###"
+          },
+          {
+            "name": "TotalSectors",
+            "expression": "DISTINCTCOUNT([DimSectorID])"
+          },
+          {
+            "name": "AVGDaysSinceLastRepayment",
+            "expression": "AVERAGE([DaysSinceLastRepayment])",
+            "formatString": "0",
+            "kpi": {
+              "targetExpression": "100",
+              "targetFormatString": "0",
+              "statusGraphic": "Traffic Light - Single",
+              "statusExpression": [
+                "var x='FS_KPI_RepaymentCube'[AVGDaysSinceLastRepayment] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<60,1,",
+                "\t                If(x<80,0,-1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Descending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "80"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "60"
+                }
+              ]
+            }
+          },
+          {
+            "name": "TotalRepayment",
+            "expression": "SUM([Amount])",
+            "formatString": "##,###"
+          },
+          {
+            "name": "Sum_TotalCredit",
+            "expression": "SUM([TotalCredit])",
+            "formatString": "##,###"
+          },
+          {
+            "name": "CumulativeCredit",
+            "expression": [
+              "",
+              "IF (",
+              "    COUNTROWS (FS_KPI_RepaymentCube) > 0,",
+              "    CALCULATE (",
+              "        [Sum_TotalCredit],",
+              "        FILTER (",
+              "            ALL ( DimDate[Datekey] ),",
+              "            DimDate[Datekey] <= MAX ( ( DimDate[Datekey] ) )",
+              "        )",
+              "    ),",
+              "    BLANK ()",
+              ")"
+            ],
+            "formatString": "##,###"
+          },
+          {
+            "name": "CumulativeRepaid",
+            "expression": [
+              "",
+              "IF (",
+              "    COUNTROWS (FS_KPI_RepaymentCube) > 0,",
+              "    CALCULATE (",
+              "        [TotalRepayment],",
+              "        FILTER (",
+              "            ALL ( DimDate[Datekey] ),",
+              "            DimDate[Datekey] <= MAX ( ( DimDate[Datekey] ) )",
+              "        )",
+              "    ),",
+              "    BLANK ()",
+              ")",
+              ""
+            ],
+            "formatString": "##,###"
+          },
+          {
+            "name": "%Repaid",
+            "expression": "DIVIDE([CumulativeRepaid],[CumulativeCredit],0)",
+            "formatString": "0.00%;-0.00%;0.00%",
+            "kpi": {
+              "targetExpression": "'FS_KPI_RepaymentCube'[RepaymentKPITarget]",
+              "targetFormatString": "0.00%;-0.00%;0.00%",
+              "statusGraphic": "Three Flags Colored",
+              "statusExpression": [
+                "var x='FS_KPI_RepaymentCube'[%Repaid]/'FS_KPI_RepaymentCube'[_%Repaid Goal] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<0.5,-1,",
+                "\t                If(x<0.95,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "Measure"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Percentage"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "50"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "95"
+                }
+              ]
+            }
+          },
+          {
+            "name": "RepaymentKPITarget",
+            "expression": "MIN([RepaymentKPI])"
+          }
+        ]
+      },
+      {
+        "name": "RepaymentKPI",
+        "columns": [
+          {
+            "name": "Country",
+            "dataType": "string",
+            "sourceColumn": "Country"
+          },
+          {
+            "name": "Target",
+            "dataType": "double",
+            "sourceColumn": "Target"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/mtama oneacrefund org,6543;OAF_SHARED_DIMENSIONS\",",
+                "    dbo_RepaymentKPI = Source{[Schema=\"dbo\",Item=\"RepaymentKPI\"]}[Data]",
+                "in",
+                "    dbo_RepaymentKPI"
+              ]
+            }
+          },
+          {
+            "name": "Partition - Copy",
+            "mode": "import",
+            "dataView": "sample",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/mtama oneacrefund org,6543;OAF_SHARED_DIMENSIONS\",",
+                "    dbo_RepaymentKPI = Source{[Schema=\"dbo\",Item=\"RepaymentKPI\"]}[Data]",
+                "in",
+                "    dbo_RepaymentKPI"
+              ]
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>let",
+                  "    Source = #\"SQL/mtama oneacrefund org,6543;OAF_SHARED_DIMENSIONS\",",
+                  "    dbo_RepaymentKPI = Source{[Schema=\"dbo\",Item=\"RepaymentKPI\"]}[Data]",
+                  "in",
+                  "    dbo_RepaymentKPI</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "9659caef-64d7-497c-8489-78a3db6bcfd3",
+        "fromTable": "FS_KPI_RepaymentCube",
+        "fromColumn": "DimGroupID",
+        "toTable": "DimGroup",
+        "toColumn": "GroupID"
+      },
+      {
+        "name": "00b349ee-4f73-4c8d-8f26-2b014cd3ec56",
+        "fromTable": "FS_KPI_RepaymentCube",
+        "fromColumn": "RepaymentDate",
+        "toTable": "DimDate",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "19ab13c4-be43-46b1-9078-c7fc3c53fc8d",
+        "fromTable": "FS_KPI_RepaymentCube",
+        "fromColumn": "DimClientID",
+        "toTable": "DimRosterClient",
+        "toColumn": "ClientID"
+      },
+      {
+        "name": "b9a0808e-478e-4e35-945f-77d8c022cc49",
+        "fromTable": "DimGroup",
+        "fromColumn": "CountryName",
+        "toTable": "RepaymentKPI",
+        "toColumn": "Country"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "500"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
