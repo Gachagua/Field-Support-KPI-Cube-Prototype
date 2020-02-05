@@ -27,7 +27,7 @@
     <DeploymentServerName>localhost\TABULAR</DeploymentServerName>
     <DeploymentServerEdition>Developer</DeploymentServerEdition>
     <DeploymentServerVersion>Unknown</DeploymentServerVersion>
-    <DeploymentServerDatabase>FS_KPI_Prototype</DeploymentServerDatabase>
+    <DeploymentServerDatabase>FS_KPI_Prototype_DirectQuery</DeploymentServerDatabase>
     <DeploymentServerCubeName>Model</DeploymentServerCubeName>
     <DeploymentOptionProcessing>Default</DeploymentOptionProcessing>
     <DeploymentOptionTransactionalDeployment>False</DeploymentOptionTransactionalDeployment>
